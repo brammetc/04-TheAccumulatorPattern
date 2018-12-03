@@ -8,8 +8,8 @@ in another classic form:
    IN GRAPHICS:   x = x + pixels
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher, Mark Hays,
-         Aaron Wilkin, their colleagues, and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         Aaron Wilkin, their colleagues, and Tanner Brammeier.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 # -----------------------------------------------------------------------------
@@ -32,7 +32,7 @@ def main():
 def run_test_sum_more_cosines():
     """ Tests the   sum_more_cosines   function. """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # DONE: 2. Implement this TEST function.
     #   It TESTS the  sum_more_cosines  function defined below.
     #   Include at least **   3   ** tests (we wrote one for you).
     #
@@ -67,13 +67,35 @@ def run_test_sum_more_cosines():
         print('       actual:  ', answer)
 
     # -------------------------------------------------------------------------
-    # TODO: 2 (continued).
+    # DONE: 2 (continued).
     # Below this comment, add 2 more test cases of your own choosing.
     # -------------------------------------------------------------------------
 
+    # Test 2:
+    expected = 0.02082  # This is APPROXIMATELY the correct answer.
+    answer = sum_more_cosines(-4, 1)
+    print('Test 2 expected:', expected, '(approximately)')
+    if answer is not None:
+        print('       actual:  ', round(answer, 5))
+    else:
+        print('       actual:  ', answer)
+
+        # Test 3:
+    expected = -1.64364  # This is APPROXIMATELY the correct answer.
+    answer = sum_more_cosines(3, 4)
+    print('Test 3 expected:', expected, '(approximately)')
+    if answer is not None:
+        print('       actual:  ', round(answer, 5))
+    else:
+        print('       actual:  ', answer)
 
 def sum_more_cosines(m, n):
-    """
+    import math
+    total = 0
+    for k in range(n + 1 - m):
+        total = total + math.cos(m + k)
+    return total
+"""
     What comes in:  Integers m and n, with m <= n.
     What goes out:  Returns the sum
        cos(m) + cos(m+1) + cos(m+2) +  ...  cos(n)
@@ -85,7 +107,7 @@ def sum_more_cosines(m, n):
       -- sum_more_cosines(-4, 1)  returns
             cos(-4) + cos(-3) + cos(-2) + cos(-1) + cos(0) + cos(1)
          which is approximately 0.02082.
-    """
+"""
     # -------------------------------------------------------------------------
     # TODO: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
