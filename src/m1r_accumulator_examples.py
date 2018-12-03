@@ -52,7 +52,7 @@ Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher, Mark Hays,
 #
 #              for k in range(r - s):   (s+1) - r
 #                  count = 0            count goes before loop
-#                  if math.cos(r) > 0:
+#                  if math.cos(r) > 0:  k + r
 #                      count = 1        count = count + 1
 #                  return count         shouldnt be indented
 #
