@@ -9,8 +9,8 @@ Additionally, it emphasizes that you must
 before you can implement a solution to the problem in Python. 
   
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher, Mark Hays,
-         Aaron Wilkin, their colleagues, and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         Aaron Wilkin, their colleagues, and Tanner Brammeier.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -73,6 +73,13 @@ def run_test_draw_squares_from_circle():
 
 
 def draw_squares_from_circle(n, circle, window):
+    circle.attach_to(window)
+    radius = circle.radius
+    for k in range(n):
+        center = rg.Point(circle.center.x + radius * k, circle.center.y + radius * k)
+        square1 = rg.Square(center, radius * 2)
+        square1.attach_to(window)
+    window.render()
     """
     What comes in:  Three arguments:
       -- A positive integer n.
@@ -98,7 +105,7 @@ def draw_squares_from_circle(n, circle, window):
       :type window: rg.RoseWindow
     """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
@@ -137,6 +144,19 @@ def run_test_draw_circles_from_rectangle():
 
 
 def draw_circles_from_rectangle(m, n, rectangle, window):
+    rectangle.attach_to(window)
+    for k in range(n):
+        width = rectangle.get_width()/2
+        point = rg.Point(rectangle.corner_1.x + width, rectangle.corner_1.y + width)
+        circle = rg.Circle(point, width/2)
+        circle.attach_to(window)
+    for k in range(m):
+        width = rectangle.get_width()/2
+        point = rg.Point(rectangle.corner_1.x + width - width * 2 * k, rectangle.corner_1.y + width - width * 2 * k)
+        circle = rg.Circle(point, width/2)
+        circle.attach_to(window)
+    window.render()
+
     """
     What comes in:  Four arguments:
       -- Positive integers m and n.
@@ -232,6 +252,7 @@ def run_test_draw_lines_from_rectangles():
 
 
 def draw_lines_from_rectangles(rectangle1, rectangle2, n, window):
+
     """
     What comes in:  Four arguments:
       -- Two rg.Rectangles.

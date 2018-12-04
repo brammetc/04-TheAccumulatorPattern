@@ -211,7 +211,7 @@ def factorial(n):
 def run_test_count_cosines_from():
     """ Tests the   count_cosines_from   function. """
     # -------------------------------------------------------------------------
-    # TODO: 6. Implement this TEST function.
+    # DONE: 6. Implement this TEST function.
     #   It TESTS the  count_cosines_from  function defined below.
     #   Include at least **   6   ** tests (we wrote one for you).
     #              ** Yes, 6 (six) tests. **
@@ -250,11 +250,22 @@ def run_test_count_cosines_from():
     # Below this comment, add 5 more test cases of your own choosing.
     # -------------------------------------------------------------------------
 
+    # Test 2:
+    expected = 3
+    answer = count_cosines_from(4, 10, 0.20)
+    print('Test 2 expected:', expected)
+    print('       actual:  ', answer)
+
+    # Test 3:
+    expected = 2
+    answer = count_cosines_from(5, 8, 0.29)
+    print('Test 3 expected:', expected)
+    print('       actual:  ', answer)
 
 def count_cosines_from(m, n, x):
     count = 0
     for k in range((n+1)-m):
-        if math.cos(k-m) > x:
+        if math.cos(k+m) > x:
             count = count + 1
     return count
 
@@ -277,7 +288,7 @@ def count_cosines_from(m, n, x):
       -- count_cosines_from(4, 8, -0.5)  returns  4
 """
     # -------------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # DO: 7. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     #
     # IMPORTANT: As in previous problems in this session,
@@ -289,7 +300,7 @@ def count_cosines_from(m, n, x):
 def run_test_sum_unit_fractions_from():
     """ Tests the   sum_unit_fractions_from   function. """
     # -------------------------------------------------------------------------
-    # TODO: 8. Implement this TEST function.
+    # DONE: 8. Implement this TEST function.
     #   It TESTS the  sum_unit_fractions_from  function defined below.
     #   Include at least **   3   ** tests (we wrote one for you).
     # Use the same 4-step process as for previous TEST functions.
@@ -306,13 +317,28 @@ def run_test_sum_unit_fractions_from():
     print('       actual:  ', answer)
 
     # -------------------------------------------------------------------------
-    # TO DO: 8 (continued).
+    # DONE: 8 (continued).
     # Below this comment, add 2 more test cases of your own choosing.
     # -------------------------------------------------------------------------
 
+    # Test 2:
+    expected = 0.6166667  # This is APPROXIMATELY the correct answer.
+    answer = sum_unit_fractions_from(4, 6)
+    print('Test 2 expected:', expected, '(approximately)')
+    print('       actual:  ', answer)
+
+    # Test 3:
+    expected = 1.8333333  # This is APPROXIMATELY the correct answer.
+    answer = sum_unit_fractions_from(1, 3)
+    print('Test 3 expected:', expected, '(approximately)')
+    print('       actual:  ', answer)
 
 def sum_unit_fractions_from(m, n):
-    """
+    total = 0
+    for k in range((n-m)+1):
+        total = total + (1/(m+k))
+    return total
+"""
     What comes in:  Two positive integers m and n with m <= n.
     What goes out:  Returns the sum:
       1/m + 1/(m+1) + 1/(m+2) + ... + 1/n.
@@ -322,9 +348,9 @@ def sum_unit_fractions_from(m, n):
             1/6 + 1/7 + 1/8 + 1/9
          which is about 0.545635
       -- sum_unit_fractions_from(10, 9000)  returns about  6.853
-    """
+"""
     # -------------------------------------------------------------------------
-    # TODO: 9. Implement and test this function.
+    # DONE: 9. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     #
     # IMPORTANT: As in previous problems in this session,
