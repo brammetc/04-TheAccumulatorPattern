@@ -28,7 +28,6 @@ import rosegraphics as rg
 def main():
     """ Calls the   TEST   functions in this module. """
     run_test_draw_parallel_lines()
-    draw_parallel_lines()
     run_test_draw_lines()
 
 
