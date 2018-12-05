@@ -127,6 +127,13 @@ def run_test_draw_circles_from_rectangle():
     print('Testing the  draw_circles_from_rectangle  function:')
     print('  See the graphics windows that pop up.')
     print('--------------------------------------------------')
+    window = rg.RoseWindow(400, 400)
+
+    # Test 1:
+    rectangle = rg.Rectangle(rg.Point(100, 150), rg.Point(200, 200))
+    draw_circles_from_rectangle(7, 4, rectangle, window)
+
+    window.close_on_mouse_click()
 
     # -------------------------------------------------------------------------
     # TODO: 3. Implement this TEST function.
@@ -150,12 +157,13 @@ def draw_circles_from_rectangle(m, n, rectangle, window):
         point = rg.Point(rectangle.corner_1.x + width, rectangle.corner_1.y + width)
         circle = rg.Circle(point, width/2)
         circle.attach_to(window)
+        window.render()
     for k in range(m):
         width = rectangle.get_width()/2
         point = rg.Point(rectangle.corner_1.x + width - width * 2 * k, rectangle.corner_1.y + width - width * 2 * k)
         circle = rg.Circle(point, width/2)
         circle.attach_to(window)
-    window.render()
+        window.render()
 
     """
     What comes in:  Four arguments:
